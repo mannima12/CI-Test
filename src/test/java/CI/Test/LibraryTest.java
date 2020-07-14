@@ -10,12 +10,9 @@ import junit.framework.Assert;
 public class LibraryTest {
     @Test
     public void testSum() {
-        // Given
         Library classUnderTest = new Library();
-        // When
         int result = classUnderTest.sum(2, 2);
-        // Then
-        if (result != 4) {   // if 2 + 2 != 4
+        if (result != 4) {
             Assert.fail();
         }
     }
