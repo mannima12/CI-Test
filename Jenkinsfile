@@ -3,9 +3,9 @@ pipeline {
   stages {
     stage('compile') {
       steps {
-              sh './gradlew compileJava'
-
+        sh './gradlew compileJava'
       }
     }
+
   }
 }
