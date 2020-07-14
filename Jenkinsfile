@@ -7,5 +7,17 @@ pipeline {
       }
     }
 
+    stage('test') {
+      steps {
+        sh 'gradle test'
+      }
+    }
+
+    stage('build') {
+      steps {
+        sh 'gradle --build-cache build'
+      }
+    }
+
   }
 }
