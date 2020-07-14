@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('compile') {
       steps {
-        sh 'echo "hello"'
+        sh 'gradle compilejava'
       }
     }
 
