@@ -1,14 +1,19 @@
 version: 2.1
 
 jobs:
-  test:
+  compile:
+    docker:
+      - image: 'circleci/openjdk:8-jdk'
+    steps:
+      - checkout
+      - run: gradle compileJava
+  build:
     docker:
       - image: 'circleci/openjdk:8-jdk'
     steps:
       - checkout
       - run: gradle build
-      - run: gradle test
-  build:
+  check:
     docker:
       - image: 'circleci/openjdk:8-jdk'
     steps:
@@ -20,6 +25,7 @@ jobs:
 workflows:
   main:
     jobs:
-      - build:
+      - compile
+      - build
+      - check:
           context: SonarCloud
-      - test:
