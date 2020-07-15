@@ -9,6 +9,15 @@
 plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
+    id "org.sonarqube" version "2.8"
+}
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "markusremplbauer_CI-Test"
+    property "sonar.organization", "markusremplbauer"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
 }
 
 repositories {
