@@ -19,8 +19,4 @@ public class Library {
     public int minus(int a, int b) {
         return a - b;  // ERROR!!!
     }
-    public int result(int a, int b){
-        a =+ b;
-        return a; 
-    }
 }
