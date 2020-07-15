@@ -5,11 +5,18 @@ jobs:
     docker:
       - image: 'circleci/openjdk:8-jdk'
     steps:
-      - checkout
+        - checkout
       - run:
           name: Analyze on SonarCloud
           command: gradle build sonarqube
       - run: gradle build
+  test:
+    docker:
+      - image: 'circleci/openjdk:8-jdk'
+    steps:
+        - checkout
+      - run: gradle build
+      - run: gradle test
 
 workflows:
   main:
