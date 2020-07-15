@@ -20,7 +20,7 @@ public class LibraryTest {
     @Test
     public void testMinus() {
         Library classUnderTest = new Library();
-        Assert.assertEquals(0, classUnderTest.minus(2, 1));
+        Assert.assertEquals(0, classUnderTest.minus(2, 2));
     }
 
     @Test
