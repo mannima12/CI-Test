@@ -1,0 +1,109 @@
+buildscript {
+  repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+  }
+  dependencies {
+		classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:1+"
+  } 
+}
+
+plugins {
+  id "com.jfrog.bintray" version "1.7.3"
+  id "maven-publish"
+  id "java"
+}
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+  jcenter()
+}
+
+version = '1.0.3'
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+javadoc.failOnError = false
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
+def pomConfig = {
+    licenses {
+        license {
+            name "The Apache Software License, Version 2.0"
+            url "http://www.apache.org/licenses/LICENSE-2.0.txt"
+            distribution "repo"
+        }
+    }
+    developers {
+        developer {
+            id "x"
+            name "x"
+            email "x"
+        }
+    }
+
+    scm {
+        url "https://github.com"
+    }
+}
+
+publishing {
+    publications {
+        mavenPublication(MavenPublication) {
+            from components.java
+            artifact sourcesJar {
+                classifier "sources"
+            }
+            artifact javadocJar {
+                classifier "javadoc"
+            }
+            artifactId project.name
+            groupId = project.name
+            version = version
+            pom.withXml {
+                def root = asNode()
+                root.appendNode('description', 'An AWESOME lib. Really!')
+                root.appendNode('name', 'My Awesome Lib')
+                root.appendNode('url', 'https://github.com')
+                root.children().last() + pomConfig
+            }
+        }
+    }
+}
+
+bintray {
+	user = property('user')
+ 	key = property('key')	
+	publications = ['mavenPublication']
+	pkg {
+		repo = 'Exlib'
+		name = 'Project'
+		desc = 'what a fantastic package indeed!'
+		licenses = ['Apache-2.0']
+		vcsUrl = 'https://github.com/bintray/gradle-bintray-plugin.git'
+		labels = ['gear', 'gore', 'gorilla']
+		publicDownloadNumbers = true
+		attributes= ['a': ['ay1', 'ay2'], 'b': ['bee'], c: 'cee'] //Optional package-level attributes
+		version {
+			name = '1.0.3'
+			desc = 'Gradle Bintray Plugin 1.0 final'
+			vcsTag = '1.0.3'
+            released  = new Date()
+			attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
+		}
+	}
+
+}
