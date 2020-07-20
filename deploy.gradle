@@ -21,7 +21,7 @@ repositories {
   jcenter()
 }
 
-version = '1.0.3'
+version = '1.0.4'
 
 task sourcesJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'
@@ -88,9 +88,10 @@ bintray {
 	user = property('user')
  	key = property('key')	
 	publications = ['mavenPublication']
+    override = true
 	pkg {
 		repo = 'Exlib'
-		name = 'Project'
+		name = 'com.mannima.Exlib'
 		desc = 'what a fantastic package indeed!'
 		licenses = ['Apache-2.0']
 		vcsUrl = 'https://github.com/bintray/gradle-bintray-plugin.git'
@@ -98,9 +99,9 @@ bintray {
 		publicDownloadNumbers = true
 		attributes= ['a': ['ay1', 'ay2'], 'b': ['bee'], c: 'cee'] //Optional package-level attributes
 		version {
-			name = '1.0.3'
+			name = '1.0.4'
 			desc = 'Gradle Bintray Plugin 1.0 final'
-			vcsTag = '1.0.3'
+			vcsTag = '1.0.4'
             released  = new Date()
 			attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
 		}
