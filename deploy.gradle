@@ -21,7 +21,8 @@ repositories {
   jcenter()
 }
 
-version = '1.0.3'
+def props = new Properties()
+file(".gradle/bintray.properties").withInputStream { props.load(it) }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'
@@ -72,12 +73,12 @@ publishing {
             }
             artifactId project.name
             groupId = project.name
-            version = version
+            version = props.getProperty("bintray.version")
             pom.withXml {
                 def root = asNode()
                 root.appendNode('description', 'An AWESOME lib. Really!')
                 root.appendNode('name', 'My Awesome Lib')
-                root.appendNode('url', 'https://github.com')
+                root.appendNode('url', 'https://github.com/mannima12/CI-Test')
                 root.children().last() + pomConfig
             }
         }
@@ -85,22 +86,25 @@ publishing {
 }
 
 bintray {
-	user = property('user')
- 	key = property('key')	
+	user = props.getProperty("bintray.user")//property('user')
+ 	key = props.getProperty("bintray.apikey")//property('key')	
 	publications = ['mavenPublication']
+    publish = true
 	pkg {
 		repo = 'Exlib'
 		name = 'Project'
 		desc = 'what a fantastic package indeed!'
-		licenses = ['Apache-2.0']
-		vcsUrl = 'https://github.com/bintray/gradle-bintray-plugin.git'
-		labels = ['gear', 'gore', 'gorilla']
-		publicDownloadNumbers = true
-		attributes= ['a': ['ay1', 'ay2'], 'b': ['bee'], c: 'cee'] //Optional package-level attributes
+        websiteUrl = 'https://github.com/mannima12/CI-Test'
+        issueTrackerUrl = 'https://github.com/mannima12/CI-Test/issues'
+        vcsUrl = 'https://github.com/mannima12/CI-Test.git'
+        licenses = ['Apache-2.0']
+        publicDownloadNumbers = true
+
+        githubRepo = 'mannima12/CI-Test' //Optional Github repository
+        githubReleaseNotesFile = 'README.md' //Optional Github readme file
 		version {
-			name = '1.0.3'
-			desc = 'Gradle Bintray Plugin 1.0 final'
-			vcsTag = '1.0.3'
+			name = props.getProperty("bintray.version")
+			vcsTag = props.getProperty("bintray.version")
             released  = new Date()
 			attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
 		}
