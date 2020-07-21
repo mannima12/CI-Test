@@ -46,6 +46,11 @@ public class LibraryTest {
         Assert.assertEquals(2, classUnderTest.divide(6, 3));
     }
 
+    @Test
+    public void testMultiply() {
+        Library classUnderTest = new Library();
+        Assert.assertEquals(6*3, classUnderTest.multiply(6, 3));
+    }
 
     @Test(expected = ArithmeticException.class)
     public void testDivideWillThrowExceptionWhenDivideOnZero() {
