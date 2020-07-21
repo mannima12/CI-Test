@@ -24,7 +24,6 @@ jobs:
           command: gradle build sonarqube
 
 workflows:
-  main:
     jobs:
       - compile
       - build
