@@ -24,8 +24,6 @@ plugins {
     id 'com.github.hierynomus.license' version '0.15.0'
     id 'jacoco'
 }
-apply plugin: "org.sonarqube"
-apply plugin: "jacoco"
 
 sonarqube {
   properties {
@@ -34,6 +32,9 @@ sonarqube {
     property "sonar.host.url", "https://sonarcloud.io"
   }
 }
+
+apply plugin: "org.sonarqube"
+apply plugin: "jacoco"
 
 test.finalizedBy jacocoTestReport
 
