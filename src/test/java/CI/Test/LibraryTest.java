@@ -25,9 +25,11 @@ import junit.framework.Assert;
 public class LibraryTest {
     @Test
     public void testSum() {
+        int a = 2;
+        int b = 5;
         Library classUnderTest = new Library();
-        int result = classUnderTest.sum(2, 2);
-        if (result != 4) {
+        int result = classUnderTest.sum(a, b);
+        if (result != a + b) {
             Assert.fail();
         }
     }
