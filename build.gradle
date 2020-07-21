@@ -33,7 +33,6 @@ sonarqube {
   }
 }
 
-apply plugin: "org.sonarqube"
 apply plugin: "jacoco"
 
 test.finalizedBy jacocoTestReport
