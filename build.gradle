@@ -5,20 +5,7 @@
  * For more details take a look at the Java Libraries chapter in the Gradle
  * User Manual available at https://docs.gradle.org/6.5.1/userguide/java_library_plugin.html
  */
-
-buildscript {
-  repositories {
-    maven {
-      url "https://plugins.gradle.org/m2/"
-    }
-  }
-  dependencies {
-    classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.0"
-  }
-}
-
 plugins {
-    // Apply the java-library plugin to add support for Java Library
     id 'java-library'
     id "org.sonarqube" version "3.0"
     id 'com.github.hierynomus.license' version '0.15.0'
@@ -38,34 +25,23 @@ apply plugin: "jacoco"
 test.finalizedBy jacocoTestReport
 
 repositories {
-    // Use jcenter for resolving dependencies.
-    // You can declare any Maven/Ivy/file repository here.
     jcenter()
 }
 
 dependencies {
-    // This dependency is exported to consumers, that is to say found on their compile classpath.
     api 'org.apache.commons:commons-math3:3.6.1'
-
-    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:29.0-jre'
-
-    // Use JUnit test framework
     testImplementation 'junit:junit:4.13'
 }
 
 license {
     header = rootProject.file('docs/licenses/HEADER.txt')
     strictCheck = true
-    ignoreFailures = true // enable if this should break the build
+    ignoreFailures = true
     ext.year = Calendar.getInstance().get(Calendar.YEAR)
     ext.name = 'Dynatrace LLC'
     include "**/*.java"
 }
-
-/*jacoco{
-  reportsDir = file("jacoco/customJacocoReportDir")
-}*/
 
 jacocoTestReport {
     reports {
