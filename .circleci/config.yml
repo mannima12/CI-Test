@@ -21,7 +21,7 @@ jobs:
       - run: gradle build jacocoTestReport
       - run:
           name: Analyze on SonarCloud
-          command: gradle sonarqube
+          command: gradle build sonarqube
 
 workflows:
   main:
