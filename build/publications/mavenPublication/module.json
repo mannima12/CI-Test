@@ -1,0 +1,61 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "CI-Test",
+    "module": "CI-Test",
+    "version": "1.0.3",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.5.1",
+      "buildId": "rnevhyaxgffbfeiryxu5e7ptna"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "CI-Test-1.0.3.jar",
+          "url": "CI-Test-1.0.3.jar",
+          "size": 863,
+          "sha512": "5768cf051f9abe8908f10d19b3a752a0038d5a61f35f75db1ccdd2ffd70db50ce8c27ee9f0d9873c3624601f983960cc9aeff16318dad1658cee4c33da059ab3",
+          "sha256": "af54fd0f65a2b964d7ab64877ba324419c135aca98f0c0ee3d1f611ae74de9c4",
+          "sha1": "dc1e16d09a872ee7a04cb2d46c4cb6d7b154e8c7",
+          "md5": "019bb25e7cc04b9bb2e579acc50d9013"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "CI-Test-1.0.3.jar",
+          "url": "CI-Test-1.0.3.jar",
+          "size": 863,
+          "sha512": "5768cf051f9abe8908f10d19b3a752a0038d5a61f35f75db1ccdd2ffd70db50ce8c27ee9f0d9873c3624601f983960cc9aeff16318dad1658cee4c33da059ab3",
+          "sha256": "af54fd0f65a2b964d7ab64877ba324419c135aca98f0c0ee3d1f611ae74de9c4",
+          "sha1": "dc1e16d09a872ee7a04cb2d46c4cb6d7b154e8c7",
+          "md5": "019bb25e7cc04b9bb2e579acc50d9013"
+        }
+      ]
+    }
+  ]
+}

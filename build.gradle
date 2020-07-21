@@ -22,7 +22,9 @@ plugins {
     id 'java-library'
     id "org.sonarqube" version "3.0"
     id 'com.github.hierynomus.license' version '0.15.0'
+    id 'jacoco'
 }
+
 
 sonarqube {
   properties {
@@ -32,6 +34,9 @@ sonarqube {
   }
 }
 apply plugin: "org.sonarqube"
+apply plugin: "jacoco"
+
+test.finalizedBy jacocoTestReport
 
 repositories {
     // Use jcenter for resolving dependencies.
@@ -57,4 +62,8 @@ license {
     ext.year = Calendar.getInstance().get(Calendar.YEAR)
     ext.name = 'Dynatrace LLC'
     include "**/*.java"
+}
+
+jacoco{
+  reportsDir = file("jacoco/customJacocoReportDir")
 }
