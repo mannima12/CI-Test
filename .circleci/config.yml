@@ -22,10 +22,3 @@ jobs:
       - run:
           name: Analyze on SonarCloud
           command: gradle build sonarqube
-
-workflows:
-    jobs:
-      - compile
-      - build
-      - check:
-          context: SonarCloud
