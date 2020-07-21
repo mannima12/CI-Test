@@ -1,2 +1,0 @@
-CI/Test/LibraryTest.java
- CI.Test.LibraryTest

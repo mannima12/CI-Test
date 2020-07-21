@@ -27,11 +27,15 @@ plugins {
 apply plugin: "org.sonarqube"
 apply plugin: "jacoco"
 
+def props = new Properties()
+file(".gradle/bintray.properties").withInputStream { props.load(it) }
+
 sonarqube {
   properties {
     property "sonar.projectKey", "markusremplbauer_CI-Test"
     property "sonar.organization", "markusremplbauer"
     property "sonar.host.url", "https://sonarcloud.io"
+    property "sonar.login", props.getProperty("token")
   }
 }
 
@@ -66,3 +70,9 @@ license {
 /*jacoco{
   reportsDir = file("jacoco/customJacocoReportDir")
 }*/
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
+}

@@ -1,7 +1,0 @@
--classpath 'C:\\workspaces\\CI-Test\\build\\classes\\java\\main;C:\\workspaces\\CI-Test\\build\\resources\\main'
--d 'C:\\workspaces\\CI-Test\\build\\docs\\javadoc'
--doctitle 'CI-Test API'
--notimestamp 
--quiet 
--windowtitle 'CI-Test API'
-'C:\\workspaces\\CI-Test\\src\\main\\java\\CI\\Test\\Library.java'
