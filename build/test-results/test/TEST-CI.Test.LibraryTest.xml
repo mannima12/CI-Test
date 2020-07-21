@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CI.Test.LibraryTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2020-07-21T09:37:06" hostname="TAG009441862329" time="0.005">
+<testsuite name="CI.Test.LibraryTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-07-21T11:08:45" hostname="TAG009441862329" time="0.005">
   <properties/>
   <testcase name="testSum" classname="CI.Test.LibraryTest" time="0.003"/>
   <testcase name="testMinus" classname="CI.Test.LibraryTest" time="0.001"/>
   <testcase name="testDivide" classname="CI.Test.LibraryTest" time="0.0"/>
+  <testcase name="testMultiply" classname="CI.Test.LibraryTest" time="0.001"/>
   <testcase name="testDivideWillThrowExceptionWhenDivideOnZero" classname="CI.Test.LibraryTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
