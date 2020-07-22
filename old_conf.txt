@@ -18,10 +18,10 @@ jobs:
       - image: 'circleci/openjdk:8-jdk'
     steps:
       - checkout
-      - sonarcloud/scan
-
-orbs:
-  sonarcloud: sonarsource/sonarcloud@1.0.1
+      - run: gradle build jacocoTestReport
+      - run:
+          name: Analyze on SonarCloud
+          command: gradle build sonarqube
 
 workflows:
   main:
