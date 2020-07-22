@@ -19,6 +19,7 @@ jobs:
     steps:
       - checkout
       - run: gradle compileJava
+      - run: gradle build jacocoTestReport
       - sonarcloud/scan
 
 orbs:
