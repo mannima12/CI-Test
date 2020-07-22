@@ -32,4 +32,8 @@ public class Library {
     public int minus(int a, int b) {
         return a - b;  // ERROR!!!
     }
+
+    public int res(int a, int v){
+        return a =+ a;
+    }
 }
