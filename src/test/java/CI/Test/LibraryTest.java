@@ -19,38 +19,38 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 public class LibraryTest {
-  @Test
-  public void testSum() {
-    int a = 2;
-    int b = 5;
-    Library classUnderTest = new Library();
-    int result = classUnderTest.sum(a, b);
-    if (result != a + b) {
-      Assert.fail();
+    @Test
+    public void testSum() {
+        int a = 2;
+        int b = 5;
+        Library classUnderTest = new Library();
+        int result = classUnderTest.sum(a, b);
+        if (result != a + b) {
+            Assert.fail();
+        }
     }
-  }
 
-  @Test
-  public void testMinus() {
-    Library classUnderTest = new Library();
-    Assert.assertEquals(0, classUnderTest.minus(2, 2));
-  }
+    @Test
+    public void testMinus() {
+        Library classUnderTest = new Library();
+        Assert.assertEquals(0, classUnderTest.minus(2, 2));
+    }
 
-  @Test
-  public void testDivide() {
-    Library classUnderTest = new Library();
-    Assert.assertEquals(2, classUnderTest.divide(6, 3));
-  }
+    @Test
+    public void testDivide() {
+        Library classUnderTest = new Library();
+        Assert.assertEquals(2, classUnderTest.divide(6, 3));
+    }
 
-  @Test
-  public void testMultiply() {
-    Library classUnderTest = new Library();
-    Assert.assertEquals(6 * 3, classUnderTest.multiply(6, 3));
-  }
+    @Test
+    public void testMultiply() {
+        Library classUnderTest = new Library();
+        Assert.assertEquals(6 * 3, classUnderTest.multiply(6, 3));
+    }
 
-  @Test(expected = ArithmeticException.class)
-  public void testDivideWillThrowExceptionWhenDivideOnZero() {
-    Library classUnderTest = new Library();
-    classUnderTest.divide(6, 0);
-  }
+    @Test(expected = ArithmeticException.class)
+    public void testDivideWillThrowExceptionWhenDivideOnZero() {
+        Library classUnderTest = new Library();
+        classUnderTest.divide(6, 0);
+    }
 }

@@ -46,3 +46,7 @@ jacocoTestReport {
         xml.enabled true
     }
 }
+
+googleJavaFormat{
+    options style: 'AOSP'
+}
