@@ -27,7 +27,7 @@ jobs:
       - image: 'circleci/openjdk:8-jdk'
     steps:
       - checkout
-      - run: gradle licenseMain
+      - run: gradle licenseTest
 
   format:
     docker:
