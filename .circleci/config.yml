@@ -3,35 +3,28 @@ version: 2.1
 jobs:
   compile:
     docker:
-      - image: 'circleci/openjdk:8-jdk'
+      - image: circleci/openjdk:8-jdk
     steps:
       - checkout
       - run: gradle compileJava
+
   build:
     docker:
-      - image: 'circleci/openjdk:8-jdk'
+      - image: circleci/openjdk:8-jdk
     steps:
       - checkout
       - run: gradle build
-  check:
-    docker:
-      - image: 'circleci/openjdk:8-jdk'
-    steps:
-      - checkout
-      - run: gradle build jacocoTestReport -x licenseMain -x verifyGoogleJavaFormat
-      - run:
-          name: Analyze on SonarCloud
-          command: gradle build sonarqube -x licenseMain -x verifyGoogleJavaFormat
+
   header:
     docker:
-      - image: 'circleci/openjdk:8-jdk'
+      - image: circleci/openjdk:8-jdk
     steps:
       - checkout
       - run: gradle licenseTest
 
   format:
     docker:
-      - image: 'circleci/openjdk:8-jdk'
+      - image: circleci/openjdk:8-jdk
     steps:
       - checkout
       - run: gradle verifyGoogleJavaFormat
@@ -41,7 +34,5 @@ workflows:
     jobs:
       - compile
       - build
-      - check:
-          context: SonarCloud
       - header
       - format
