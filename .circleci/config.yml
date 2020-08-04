@@ -24,7 +24,7 @@ jobs:
           command: gradle build sonarqube
   header:
     docker:
-      -image: 'circleci/openjdk:8-jdk'
+      - image: 'circleci/openjdk:8-jdk'
     steps:
       - checkout
       - run: gradle licenseMain
