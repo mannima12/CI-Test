@@ -10,6 +10,7 @@ plugins {
     id "org.sonarqube" version "3.0"
     id 'com.github.hierynomus.license' version '0.15.0'
     id 'jacoco'
+    id 'com.github.sherter.google-java-format' version '0.8'
 }
 
 sonarqube {
@@ -19,8 +20,6 @@ sonarqube {
     property "sonar.host.url", "https://sonarcloud.io"
   }
 }
-
-apply plugin: "jacoco"
 
 test.finalizedBy jacocoTestReport
 
@@ -37,7 +36,6 @@ dependencies {
 license {
     header = rootProject.file('docs/licenses/HEADER.txt')
     strictCheck = true
-    ignoreFailures = true
     ext.year = Calendar.getInstance().get(Calendar.YEAR)
     ext.name = 'Dynatrace LLC'
     include "**/*.java"
@@ -47,4 +45,8 @@ jacocoTestReport {
     reports {
         xml.enabled true
     }
+}
+
+googleJavaFormat{
+    options style: 'AOSP'
 }
