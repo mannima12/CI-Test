@@ -30,7 +30,7 @@ public class LibraryTest {
         }
     }
 
-    @Test
+    /*@Test
     public void testMinus() {
         Library classUnderTest = new Library();
         Assert.assertEquals(0, classUnderTest.minus(2, 2));
@@ -52,5 +52,5 @@ public class LibraryTest {
     public void testDivideWillThrowExceptionWhenDivideOnZero() {
         Library classUnderTest = new Library();
         classUnderTest.divide(6, 0);
-    }
+    }*/
 }
