@@ -44,7 +44,7 @@ workflows:
     jobs:
       - compile
       - build
-      - check:
-          context: SonarCloud
       - header
       - format
+      - check:
+          context: SonarCloud
