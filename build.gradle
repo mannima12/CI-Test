@@ -41,11 +41,11 @@ license {
     include "**/*.java"
 }
 
-jacocoTestReport {
+/*jacocoTestReport {
     reports {
         xml.enabled true
     }
-}
+}*/
 
 googleJavaFormat{
     options style: 'AOSP'
