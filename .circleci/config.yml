@@ -21,6 +21,7 @@ jobs:
       - run: gradle compileJava
       - run: gradle build jacocoTestReport
       - sonarcloud/scan
+
   header:
     docker:
       - image: 'circleci/openjdk:8-jdk'
